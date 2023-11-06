@@ -16,13 +16,13 @@ for msg in st.session_state.messages:
 
 if prompt := st.chat_input():
     if not google_palm2_key:
-        st.info("Please add your OpenAI API key to continue.")
+        st.info("Please add your Google Palm-2 key to continue.")
         st.stop()
 
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     with st.spinner('Thinking...'):
-        msg = myGpt(prompt)
+        msg = myGpt(prompt, google_palm2_key)
         msg = {"role": "assistant", "content": msg}
         st.session_state.messages.append(msg)
         st.chat_message("assistant").write(msg["content"])

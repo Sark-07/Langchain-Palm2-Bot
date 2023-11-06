@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-def myGpt(query):
+def myGpt(query, key):
 
     # Prompt template
     template = """Assistant is a large language model.
@@ -23,7 +23,7 @@ def myGpt(query):
 
     # creating llm chain
 
-    llm = GooglePalm(google_api_key=os.getenv('GOOGLE_PALM_SECRET_KEY'))
+    llm = GooglePalm(google_api_key=key)
 
     chain = LLMChain(
         llm=llm,
