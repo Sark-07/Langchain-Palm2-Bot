@@ -40,4 +40,4 @@ def myGpt(query, key):
     return output
 
 if __name__ == "__main__":
-    print(myGpt('Hello Bard.'))
+    print(myGpt(input("Ask me: "), ''))
